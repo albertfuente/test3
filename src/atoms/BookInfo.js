@@ -8,11 +8,15 @@ const BookInfo = ({ bookId }) => {
 
     const fetchBook = async () => {
         SetIsLoading(true)
-        const res = await fetch(url)
-        const data = await res.json()
-        SetIsLoading(false)
+        try {
+            const res = await fetch(url)
+            const data = await res.json()
+            SetIsLoading(false)
 
-        return data
+            return data
+        } catch (e) {
+            console.log(e)
+        }
     }
 
     useEffect(() => {
