@@ -1,32 +1,10 @@
-import { useEffect, useState } from "react";
+import useFetchBook from "../hooks/useFetchBook";
+import { bookUrl } from "../services/urlPaths";
 
 const BookInfo = ({ bookId }) => {
-    const [isLoading, SetIsLoading] = useState(false);
-    const [book, setBook] = useState([])
+    let url = `${bookUrl}${bookId}`;
 
-    let url = `https://www.anapioficeandfire.com/api/books/${bookId}`;
-
-    const fetchBook = async () => {
-        SetIsLoading(true)
-        try {
-            const res = await fetch(url)
-            const data = await res.json()
-            SetIsLoading(false)
-
-            return data
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
-    useEffect(() => {
-        const getBook = async () => {
-            const bookFromServer = await fetchBook()
-            setBook(bookFromServer)
-        }
-        getBook()
-
-    }, [])
+    const { book, isLoading } = useFetchBook(url)
 
     return (
         <>

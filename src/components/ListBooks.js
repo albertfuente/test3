@@ -2,36 +2,15 @@ import { useEffect, useState } from "react";
 import { Route, Link, Routes, useParams } from 'react-router-dom';
 import Book from "../atoms/Book";
 import BookInfo from "../atoms/BookInfo";
+import useFetchBooks from "../hooks/useFetchBooks";
+import { booksUrl } from "../services/urlPaths";
 
 const ListBooks = () => {
-
-    const [books, setBooks] = useState([]);
-    const [isLoading, SetIsLoading] = useState(false);
     const [filter, SetFilter] = useState('');
     const [searchedBooks, setSearchedBooks] = useState(null);
+    let url = booksUrl;
 
-    let url = 'https://www.anapioficeandfire.com/api/books';
-
-    const fetchBooks = async () => {
-        SetIsLoading(true)
-        try {
-            const res = await fetch(url)
-            const data = await res.json()
-            SetIsLoading(false)
-
-            return data
-        } catch (e) {
-            console.log(e)
-        }
-    }
-
-    useEffect(() => {
-        const getBooks = async () => {
-            const booksFromServer = await fetchBooks()
-            setBooks(booksFromServer)
-        }
-        getBooks()
-    }, [])
+    const { books, isLoading } = useFetchBooks(url)
 
     useEffect(() => {
         if (!searchedBooks) {
@@ -140,7 +119,7 @@ const ListBooks = () => {
                             </Link>
                         ))}
                         </div>}
-                </div> : <div class="loader"></div>}
+                </div> : <div className="loader"></div>}
             </div>
         )
     }
