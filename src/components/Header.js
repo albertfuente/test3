@@ -1,7 +1,7 @@
 const Header = () => {
     return (
         <header className="header-container">
-            <h1>List of books</h1>
+            <h1>Ice and Fire books</h1>
         </header>
     );
 }

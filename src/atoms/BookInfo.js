@@ -39,7 +39,7 @@ const BookInfo = ({ bookId }) => {
                 <h4>{book.publisher}</h4>
                 <label>Released:</label>
                 <h4>{book.released}</h4>
-            </div> : <h1 > Loading ... </h1>}
+            </div> : <div class="loader"></div>}
         </>
     );
 }

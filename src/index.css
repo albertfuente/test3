@@ -1,7 +1,6 @@
 :root {
   --title-color: #095BEB;
   --text-color: #7A7A7A2B;
-
 }
 
 body {
@@ -34,8 +33,13 @@ body {
 .list-books-title-btn{
   padding: 10;
   cursor: pointer;
-  color: var(--title-color);
-  margin-top: 10px;
+  color: white;
+  margin: 10px;
+  background: var(--title-color);
+  border: none;
+  padding: 4px 22px;
+  border-radius: 5px;
+
 }
 
 .book-container{
@@ -44,7 +48,7 @@ body {
   color: black
 }
 .book-container:hover{
-  background-color: beige;
+  background-color: lightblue;
 }
 
 .book-name{
@@ -54,6 +58,17 @@ body {
 .list-books-header-container{
   display: flex;
   justify-content: space-between;
+}
+
+.list-books-btn{
+  background: var(--title-color);
+  color: white;
+  border: none;
+  padding: 4px 22px;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .list-book-container{
@@ -67,6 +82,28 @@ body {
   display: flex;
   flex-direction: column;
 }
+
 .book-info-container{
   margin-top: 30px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid var(--title-color);
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

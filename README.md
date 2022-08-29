@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# Description
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project retrieves books from the universe of Ice and Fire and allows the user to click on a book and see more details.
+API used: https://anapioficeandfire.com/Documentation
 
 ## Available Scripts
 
